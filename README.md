@@ -93,14 +93,15 @@ python create_map_poster.py -c "Tokyo" -C "Japan" --all-themes
 
 # Add custom markers (repeat -m)
 python create_map_poster.py --latitude 59.9139 --longitude 10.7522 -t noir -d 8000 -m 59.9145,10.7521 -m 59.9120,10.7500
-
+```
+```bash
 # Example with city label + country label + marker
 python create_map_poster.py --latitude 59.78400362734464 --longitude 10.508743933852775 --city-label "Slemmestad" --country-label "NORWAY" --marker 59.783078988620666,10.501471413651075 -t noir -d 2000
 ```
-
 ### Example Output
 
 ![Slemmestad noir map poster](posters/slemmestad_noir_20260128_213702.svg)
+
 
 ### Distance Guide
 
