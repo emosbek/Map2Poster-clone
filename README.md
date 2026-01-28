@@ -1,24 +1,18 @@
-# City Map Poster Generator
+# City Map Poster Generator - Clone
+
+
+This is a clone of City Map Poster Generator.
+
+The only changes are the option to use longitude and latitude rather than a city name, and the option to add orange markers for personal reference points.
+
+#
+
+
+
 
 Generate beautiful, minimalist map posters for any city in the world.
 
-<img src="posters/singapore_neon_cyberpunk_20260118_153328.png" width="250">
-<img src="posters/dubai_midnight_blue_20260118_140807.png" width="250">
 
-## Examples
-
-
-| Country      | City           | Theme           | Poster |
-|:------------:|:--------------:|:---------------:|:------:|
-| USA          | San Francisco  | sunset          | <img src="posters/san_francisco_sunset_20260118_144726.png" width="250"> |
-| Spain        | Barcelona      | warm_beige      | <img src="posters/barcelona_warm_beige_20260118_140048.png" width="250"> |
-| Italy        | Venice         | blueprint       | <img src="posters/venice_blueprint_20260118_140505.png" width="250"> |
-| Japan        | Tokyo          | japanese_ink    | <img src="posters/tokyo_japanese_ink_20260118_142446.png" width="250"> |
-| India        | Mumbai         | contrast_zones  | <img src="posters/mumbai_contrast_zones_20260118_145843.png" width="250"> |
-| Morocco      | Marrakech      | terracotta      | <img src="posters/marrakech_terracotta_20260118_143253.png" width="250"> |
-| Singapore    | Singapore      | neon_cyberpunk  | <img src="posters/singapore_neon_cyberpunk_20260118_153328.png" width="250"> |
-| Australia    | Melbourne      | forest          | <img src="posters/melbourne_forest_20260118_153446.png" width="250"> |
-| UAE          | Dubai          | midnight_blue   | <img src="posters/dubai_midnight_blue_20260118_140807.png" width="250"> |
 
 ## Installation
 
@@ -38,12 +32,25 @@ python create_map_poster.py --city <city> --country <country> [options]
 |--------|-------|-------------|---------|
 | `--city` | `-c` | City name | required |
 | `--country` | `-C` | Country name | required |
+| **OPTIONAL:** `--latitude` | | Latitude in decimal degrees (use with `--longitude`) | |
+| **OPTIONAL:** `--longitude` | | Longitude in decimal degrees (use with `--latitude`) | |
+| **OPTIONAL:** `--marker` | `-m` | Add a custom marker as `lat,lon` (repeatable) | |
 | **OPTIONAL:** `--name` | | Override display name (city display on poster) | |
 | **OPTIONAL:** `--country-label` | | Override display country (country display on poster) | |
 | **OPTIONAL:** `--theme` | `-t` | Theme name | feature_based |
 | **OPTIONAL:** `--distance` | `-d` | Map radius in meters | 29000 |
+| **OPTIONAL:** `--format` | `-f` | Output format (`png`, `svg`, `pdf`) | svg |
 | **OPTIONAL:** `--list-themes` | | List all available themes | |
 | **OPTIONAL:** `--all-themes` | | Generate posters for all available themes | |
+
+### Markers
+
+Use `--marker`/`-m` to add one or more custom points on the map. Each marker must be in `lat,lon` format (decimal degrees). You can repeat `-m` to plot multiple markers.
+
+Notes:
+- Negative values represent south/west (e.g. `-33.865,151.209`)
+- Marker color comes from the theme's `marker` field
+- Markers are plotted above roads and other layers
 
 ### Examples
 
@@ -80,6 +87,9 @@ python create_map_poster.py --list-themes
 
 # Generate posters for every theme
 python create_map_poster.py -c "Tokyo" -C "Japan" --all-themes
+
+# Add custom markers (repeat -m)
+python create_map_poster.py --latitude 59.9139 --longitude 10.7522 -t noir -d 8000 -m 59.9145,10.7521 -m 59.9120,10.7500
 ```
 
 ### Distance Guide
