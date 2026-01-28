@@ -1,9 +1,12 @@
 # City Map Poster Generator - Clone
 
 
-This is a clone of City Map Poster Generator.
+This is a clone of the City Map Poster Generator.
 
-The only changes are the option to use longitude and latitude rather than a city name, and the option to add orange markers for personal reference points.
+Changes from the original:
+- Use longitude/latitude instead of a city name.
+- Add orange markers for personal reference points.
+- Save output as SVG for higher-quality prints.
 
 #
 
